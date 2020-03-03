@@ -1,0 +1,15 @@
+[raghu@localhost ~]$ cd BlindSigFiles/
+[raghu@localhost BlindSigFiles]$ ls
+BigInt.cpp  BigInt.h  blindrsa.cpp  RSA.cpp  rsaDriver.cpp  rsatry1.cpp RSA.h
+[raghu@localhost BlindSigFiles]$ g++ -c BigInt.cpp RSA.cpp
+[raghu@localhost BlindSigFiles]$ ar rc libRSAutil.a BigInt.o RSA.o
+[raghu@localhost BlindSigFiles]$ ranlib libRSAutil.a 
+[raghu@localhost BlindSigFiles]$ ls
+BigInt.cpp  BigInt.o      libRSAutil.a  rsaDriver.cpp  RSA.o
+BigInt.h    blindrsa.cpp  RSA.cpp       RSA.h
+[raghu@localhost BlindSigFiles]$ g++ rsaDriver.cpp -L. -l RSAutil -o prog
+[raghu@localhost BlindSigFiles]$ ./prog
+539382393
+message: 0x2026 5279    cipher: 0x0001 669F B850        deciphered: 0x2026 5279 
+[raghu@localhost BlindSigFiles]$ 
+

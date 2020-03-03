@@ -1,0 +1,13 @@
+to compile:
+g++ BigInt.cpp RSA.cpp main.cpp
+
+to create library:
+g++ -c BigInt.cpp RSA.cpp
+ar rc libRSAutil.a BigInt.o RSA.o
+ranlib libRSAutil.a
+
+to use library:
+(BigInt.h & RSA.h files must be in your current directory w/main.cpp & libRSAutil.a)
+g++ main.cpp -L. -l RSAutil -o prog   (that is an 'L' before RSAutil)
+run program:
+./prog
